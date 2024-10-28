@@ -2,18 +2,24 @@
 API to update a set of Azure IOT Hub device twin tags
 
 # File structure
-### Requirements
-requirements.txt holds all required libraries. Install the libraries with the following terminal command.
-> pip install -r requirements.txt
+### Library
+DeviceTwinTagUpdaterLibrary holds the required library file(s).
 
-### Configuration file
-Scipt requires the creation of a config file in the root folder: config.ini
+### Console Application
+DeviceTwinTagUpdater holds the console application.
 
-```python
-[CONNECTIONS]
-iot_hub = <iot-hub-connection-string>
+## Requirements
+Script requires the creation of a App.config file on location "Source\DeviceTwinTagUpdater\App.config"
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<appSettings>
+		<add key="IOT_HUB" value="connectionString"/>
+	</appSettings>
+</configuration>
 ```
-## Python script usage
+## Script usage
 
 | **Params** | **occurence** | **values** | **comment**                                                                                               |
 |------------|---------------|------------|-----------------------------------------------------------------------------------------------------------|
@@ -23,4 +29,4 @@ iot_hub = <iot-hub-connection-string>
 | tag_value  | required      | str        | The new tag value.                                                                                        |
 
 #### Example
-> python .\src\main.py --first_id 0 --last_id 50 --tag_key version --tag_value 0
+> dotnet run --project .\Source\DeviceTwinTagUpdater\DeviceTwinTagUpdater.csproj --first_id 0 --last_id 50 --tag_key version --tag_value 0

@@ -1,2 +1,0 @@
-azure-iot-hub
-aiohttp
